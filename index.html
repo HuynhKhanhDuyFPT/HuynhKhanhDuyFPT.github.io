@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân Của Tôi</title>
+    <style>
+        /* PHẦN TRANG TRÍ (CSS) - Chỉnh màu sắc ở đây */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Màu nền chung */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Bo tròn ảnh */
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        h1 { margin-bottom: 10px; color: #2c3e50; }
+        p { color: #666; font-size: 1.1em; }
+        
+        /* Phần nút bấm mạng xã hội */
+        .social-links { margin: 30px 0; }
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .fb { background-color: #1877F2; } /* Màu Facebook */
+        .lk { background-color: #0077b5; } /* Màu LinkedIn */
+        .git { background-color: #333; }   /* Màu GitHub */
+        .btn:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        /* Phần Dự án */
+        .projects { text-align: left; margin-top: 40px; }
+        .project-card {
+            background: #fafafa;
+            border-left: 5px solid #2c3e50; /* Viền màu bên trái */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .project-card h3 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="avatar.jpg" alt="Avatar của tôi" class="avatar">
+
+        <h1>Nguyễn Văn A</h1>
+        <p>Sinh viên Đại học FPT | Kỹ thuật phần mềm</p>
+        <p>"Code dạo vì đam mê, bug nhiều vì định mệnh"</p>
+
+        <div class="social-links">
+            <a href="LINK_FACEBOOK_CUA_BAN" class="btn fb" target="_blank">Facebook</a>
+            <a href="LINK_LINKEDIN_CUA_BAN" class="btn lk" target="_blank">LinkedIn</a>
+            <a href="LINK_GITHUB_CUA_BAN" class="btn git" target="_blank">GitHub</a>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <div class="projects">
+            <h2 style="text-align: center;">Dự Án Của Tôi</h2>
+
+            <div class="project-card">
+                <h3>Project 1: Website Quản lý Thư viện</h3>
+                <p><strong>Công nghệ:</strong> Java, SQL Server</p>
+                <p>Đây là đồ án môn học, giúp quản lý sách và sinh viên mượn trả...</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 2: Flappy Bird Clone</h3>
+                <p><strong>Công nghệ:</strong> Unity, C#</p>
+                <p>Game mobile đơn giản clone lại tựa game nổi tiếng...</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
