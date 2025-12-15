@@ -3,97 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Cá Nhân Của Tôi</title>
+    <title>Profile - Huỳnh Khánh Duy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* PHẦN TRANG TRÍ (CSS) - Chỉnh màu sắc ở đây */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4; /* Màu nền chung */
-            margin: 0;
-            padding: 0;
-            color: #333;
+        /* --- CẤU HÌNH GIAO DIỆN VĂN PHÒNG CHUẨN --- */
+        :root {
+            --dark-blue: #0f172a;  /* Xanh đen đậm (Nam tính) */
+            --slate: #334155;      /* Màu xám chì */
+            --light-bg: #f8fafc;   /* Nền trắng xám */
+            --white: #ffffff;
+            --accent: #2563eb;     /* Xanh Royal (Điểm nhấn) */
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Bo tròn ảnh */
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-        }
-        h1 { margin-bottom: 10px; color: #2c3e50; }
-        p { color: #666; font-size: 1.1em; }
-        
-        /* Phần nút bấm mạng xã hội */
-        .social-links { margin: 30px 0; }
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            margin: 5px;
-            text-decoration: none;
-            color: white;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .fb { background-color: #1877F2; } /* Màu Facebook */
-        .lk { background-color: #0077b5; } /* Màu LinkedIn */
-        .git { background-color: #333; }   /* Màu GitHub */
-        .btn:hover { opacity: 0.8; transform: translateY(-3px); }
 
-        /* Phần Dự án */
-        .projects { text-align: left; margin-top: 40px; }
-        .project-card {
-            background: #fafafa;
-            border-left: 5px solid #2c3e50; /* Viền màu bên trái */
-            padding: 15px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0;
+            color: var(--slate);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Căn giữa màn hình */
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: var(--white);
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 2px; /* Góc vuông nhẹ, cứng cáp */
+            overflow: hidden;
+        }
+
+        /* --- CỘT TRÁI (INFO) --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px; /* Bo góc vuông nam tính */
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .name-sidebar {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .major-sidebar {
+            color: #94a3b8; /* Xám sáng */
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-group {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .contact-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            padding-left: 5px; /* Hiệu ứng đẩy nhẹ */
+        }
+
+        .social-link i { margin-right: 10px; width: 20px; }
+
+        /* --- CỘT PHẢI (NỘI DUNG) --- */
+        .content {
+            width: 65%;
+            padding: 50px 40px;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 30px;
+            font-style: italic;
+            color: var(--slate);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--dark-blue);
             margin-bottom: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Đường gạch ngang tiêu đề */
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+            margin-left: 15px;
+        }
+
+        /* List thông tin */
+        .info-lines p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .icon-bullet {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* List kỹ năng */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 10px 15px;
             border-radius: 4px;
         }
-        .project-card h3 { margin-top: 0; }
+
+        .skills-list li i {
+            color: var(--accent);
+            margin-right: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-card { flex-direction: column; }
+            .sidebar, .content { width: 100%; }
+            .sidebar { padding: 30px; }
+            .content { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="avatar.jpg" alt="Avatar của tôi" class="avatar">
+    <div class="profile-card">
+        <div class="sidebar">
+            <div class="avatar-container">
+                <img src="https://cdn.pixabay.com/photo/2023/11/19/10/26/ai-generated-8398930_1280.jpg" alt="Avatar" class="avatar">
+            </div>
 
-        <h1>Nguyễn Văn A</h1>
-        <p>Sinh viên Đại học FPT | Kỹ thuật phần mềm</p>
-        <p>"Code dạo vì đam mê, bug nhiều vì định mệnh"</p>
+            <h1 class="name-sidebar">Huỳnh<br>Khánh Duy</h1>
+            <p class="major-sidebar">Information Assurance</p>
 
-        <div class="social-links">
-            <a href="LINK_FACEBOOK_CUA_BAN" class="btn fb" target="_blank">Facebook</a>
-            <a href="LINK_LINKEDIN_CUA_BAN" class="btn lk" target="_blank">LinkedIn</a>
-            <a href="LINK_GITHUB_CUA_BAN" class="btn git" target="_blank">GitHub</a>
+            <div class="contact-group">
+                <div class="contact-item">
+                    <i class="fas fa-university"></i> FPT University
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Can Tho, Vietnam
+                </div>
+            </div>
+
+            <div style="margin-top: auto;">
+                <a href="https://www.facebook.com/khanh.duy.674349?mibextid=ZbWKwL" target="_blank" class="social-link">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.linkedin.com/in/duy-huỳnh-khánh-a05790391" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+            </div>
         </div>
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-
-        <div class="projects">
-            <h2 style="text-align: center;">Dự Án Của Tôi</h2>
-
-            <div class="project-card">
-                <h3>Project 1: Website Quản lý Thư viện</h3>
-                <p><strong>Công nghệ:</strong> Java, SQL Server</p>
-                <p>Đây là đồ án môn học, giúp quản lý sách và sinh viên mượn trả...</p>
+        <div class="content">
+            
+            <div class="quote-box">
+                “Although I am not an outstanding student, I always make every effort to improve myself.”
             </div>
 
-            <div class="project-card">
-                <h3>Project 2: Flappy Bird Clone</h3>
-                <p><strong>Công nghệ:</strong> Unity, C#</p>
-                <p>Game mobile đơn giản clone lại tựa game nổi tiếng...</p>
+            <h3 class="section-title">About Me</h3>
+            <div class="info-lines">
+                <p>
+                    <span class="icon-bullet">👋</span> 
+                    Hi, I’m Huỳnh Khánh Duy.
+                </p>
+                <p>
+                    <span class="icon-bullet">🎓</span> 
+                    Information Security student at FPT University.
+                </p>
+                <p>
+                    <span class="icon-bullet">📚</span> 
+                    Currently building a strong foundation in cybersecurity through hands-on labs and practice.
+                </p>
             </div>
+
+            <h3 class="section-title">Skills & Knowledge</h3>
+            <ul class="skills-list">
+                <li>
+                    <i class="fas fa-network-wired"></i> 
+                    Networking basics with Cisco Packet Tracer
+                </li>
+                <li>
+                    <i class="fas fa-code"></i> 
+                    Programming in C and Java
+                </li>
+                <li>
+                    <i class="fas fa-database"></i> 
+                    OOP concepts and working with SQL
+                </li>
+                <li>
+                    <i class="fas fa-server"></i> 
+                    Basic experience with virtual machines
+                </li>
+            </ul>
+
         </div>
     </div>
 
